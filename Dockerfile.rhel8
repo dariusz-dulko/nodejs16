@@ -60,7 +60,8 @@ RUN yum -y module enable nodejs:$NODEJS_VERSION && \
     ln -s /usr/libexec/platform-python /usr/bin/python3 && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
-    yum -y clean all --enablerepo='*'
+    yum -y clean all --enablerepo='*' && \
+    node --version
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
